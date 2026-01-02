@@ -36,15 +36,14 @@ export default function FadeOnScroll({ children, className = "", id }: FadeOnScr
 
     const observer = new IntersectionObserver(
       (entries) => {
+        const viewportHeight = window.innerHeight;
         entries.forEach((entry) => {
           // Wenn die Sektion von unten hereinkommt
           if (entry.isIntersecting) {
             const rect = entry.boundingClientRect;
-            const viewportHeight = window.innerHeight;
             
             // Berechne wie weit die Sektion schon sichtbar ist
             const visibleFromBottom = viewportHeight - rect.top;
-            const sectionHeight = rect.height;
             
             // Slide-in Effekt: Starte von unten (translateY(100px)) und gleite rein
             if (visibleFromBottom > 0 && visibleFromBottom < viewportHeight * 0.3) {
