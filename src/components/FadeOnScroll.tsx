@@ -10,10 +10,27 @@ interface FadeOnScrollProps {
 export default function FadeOnScroll({ children, className = "", id }: FadeOnScrollProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [opacity, setOpacity] = useState(1);
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    // Check if device is mobile (less than 768px)
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section) return;
+    if (!section || isMobile) {
+      // On mobile, always keep opacity at 1
+      setOpacity(1);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -74,7 +91,7 @@ export default function FadeOnScroll({ children, className = "", id }: FadeOnScr
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section
