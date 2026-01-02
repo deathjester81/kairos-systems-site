@@ -55,9 +55,7 @@ export default function People() {
               </div>
 
               {/* Card Content */}
-              <div className="relative z-20 text-center flex flex-col h-full">
-                <div className="mb-8 mt-16">
-
+              <div className="relative z-20 text-center flex flex-col h-full mt-16">
                 <ul className="space-y-4 text-left text-neutral-400 text-sm leading-relaxed mb-10 flex-1">
                   {p.facts.map((f, idx) => (
                     <li key={idx} className="flex gap-3">
