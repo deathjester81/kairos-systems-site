@@ -44,18 +44,17 @@ export default function People() {
                 </div>
               </div>
 
-              {/* Name and Role - Positioned elegantly below portrait */}
-              <div className="absolute -top-12 left-1/2 -translate-x-1/2 z-40 text-center w-full pointer-events-none">
-                <h3 className="text-2xl md:text-3xl font-bold text-neutral-50 mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                  {p.name}
-                </h3>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-amber-500 font-bold">
-                  {p.role}
-                </div>
-              </div>
-
               {/* Card Content */}
-              <div className="relative z-20 text-center flex flex-col h-full mt-16">
+              <div className="relative z-20 text-center flex flex-col h-full">
+                {/* Name and Role - Below portrait, above bullets */}
+                <div className="mb-8 mt-32">
+                  <h3 className="text-2xl md:text-3xl font-bold text-neutral-50 mb-2">
+                    {p.name}
+                  </h3>
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-amber-500 font-bold">
+                    {p.role}
+                  </div>
+                </div>
                 <ul className="space-y-4 text-left text-neutral-400 text-sm leading-relaxed mb-10 flex-1">
                   {p.facts.map((f, idx) => (
                     <li key={idx} className="flex gap-3">
