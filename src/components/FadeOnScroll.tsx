@@ -9,6 +9,7 @@ interface FadeOnScrollProps {
 
 export default function FadeOnScroll({ children, className = "", id }: FadeOnScrollProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  const [transform, setTransform] = useState("translateY(0)");
   const [opacity, setOpacity] = useState(1);
   const [isMobile, setIsMobile] = useState(true);
 
@@ -27,7 +28,8 @@ export default function FadeOnScroll({ children, className = "", id }: FadeOnScr
   useEffect(() => {
     const section = sectionRef.current;
     if (!section || isMobile) {
-      // On mobile, always keep opacity at 1
+      // On mobile, always keep normal state
+      setTransform("translateY(0)");
       setOpacity(1);
       return;
     }
@@ -35,23 +37,32 @@ export default function FadeOnScroll({ children, className = "", id }: FadeOnScr
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // Wenn die Sektion den oberen Rand verlässt (exit)
-          if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
-            // Berechne Opacity basierend auf wie weit sie rausgescrollt ist
-            const scrollProgress = Math.min(
-              Math.abs(entry.boundingClientRect.top) / window.innerHeight,
-              1
-            );
-            // Fade startet erst bei 80% rausgescrollt (also ganz am Ende)
-            const fadeStart = 0.8;
-            if (scrollProgress > fadeStart) {
-              const fadeAmount = (scrollProgress - fadeStart) / (1 - fadeStart);
-              setOpacity(Math.max(0, 1 - fadeAmount * 1.2)); // 1.2 für sanfteren Fade
+          // Wenn die Sektion von unten hereinkommt
+          if (entry.isIntersecting) {
+            const rect = entry.boundingClientRect;
+            const viewportHeight = window.innerHeight;
+            
+            // Berechne wie weit die Sektion schon sichtbar ist
+            const visibleFromBottom = viewportHeight - rect.top;
+            const sectionHeight = rect.height;
+            
+            // Slide-in Effekt: Starte von unten (translateY(100px)) und gleite rein
+            if (visibleFromBottom > 0 && visibleFromBottom < viewportHeight * 0.3) {
+              // Erste 30% des Viewports: Gleite von unten rein
+              const progress = Math.min(visibleFromBottom / (viewportHeight * 0.3), 1);
+              const translateY = 100 * (1 - progress); // Von 100px zu 0
+              const opacityValue = Math.min(0.3 + progress * 0.7, 1); // Von 0.3 zu 1
+              setTransform(`translateY(${translateY}px)`);
+              setOpacity(opacityValue);
             } else {
+              // Vollständig sichtbar
+              setTransform("translateY(0)");
               setOpacity(1);
             }
-          } else {
-            setOpacity(1);
+          } else if (entry.boundingClientRect.top > viewportHeight) {
+            // Sektion ist noch unterhalb des Viewports - starte von unten
+            setTransform("translateY(100px)");
+            setOpacity(0.3);
           }
         });
       },
@@ -69,18 +80,26 @@ export default function FadeOnScroll({ children, className = "", id }: FadeOnScr
       const rect = section.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
-      // Wenn Sektion oben raus ist
-      if (rect.top < 0 && rect.bottom > 0) {
-        const scrollProgress = Math.abs(rect.top) / viewportHeight;
-        const fadeStart = 0.8; // Startet bei 80% rausgescrollt
-        if (scrollProgress > fadeStart) {
-          const fadeAmount = (scrollProgress - fadeStart) / (1 - fadeStart);
-          setOpacity(Math.max(0, 1 - fadeAmount * 1.2));
-        } else {
+      // Wenn Sektion von unten hereinkommt
+      if (rect.top < viewportHeight && rect.top > -rect.height) {
+        const visibleFromBottom = viewportHeight - rect.top;
+        
+        if (visibleFromBottom > 0 && visibleFromBottom < viewportHeight * 0.3) {
+          // Erste 30%: Slide-in von unten
+          const progress = Math.min(visibleFromBottom / (viewportHeight * 0.3), 1);
+          const translateY = 100 * (1 - progress);
+          const opacityValue = Math.min(0.3 + progress * 0.7, 1);
+          setTransform(`translateY(${translateY}px)`);
+          setOpacity(opacityValue);
+        } else if (rect.top <= 0) {
+          // Sektion ist vollständig sichtbar oder darüber
+          setTransform("translateY(0)");
           setOpacity(1);
         }
-      } else if (rect.top >= 0) {
-        setOpacity(1);
+      } else if (rect.top >= viewportHeight) {
+        // Noch nicht sichtbar - starte von unten
+        setTransform("translateY(100px)");
+        setOpacity(0.3);
       }
     };
 
@@ -100,8 +119,8 @@ export default function FadeOnScroll({ children, className = "", id }: FadeOnScr
       className={className}
       style={{
         opacity,
-        transition: "opacity 0.3s ease-out, filter 0.3s ease-out",
-        filter: opacity < 0.5 ? `blur(${(1 - opacity) * 8}px)` : "blur(0px)",
+        transform,
+        transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
       }}
     >
       {children}
