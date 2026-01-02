@@ -56,13 +56,6 @@ export default function Hero({ onOpenCalendly }: HeroProps) {
                 <span className="relative z-10">{heroCopy.cta}</span>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </button>
-              
-              <a
-                href="#problem"
-                className="text-neutral-500 hover:text-neutral-300 transition-colors text-[10px] font-bold uppercase tracking-[0.2em]"
-              >
-                The Problem ↓
-              </a>
             </div>
           </div>
 
