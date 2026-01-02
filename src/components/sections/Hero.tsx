@@ -29,8 +29,8 @@ export default function Hero({ onOpenCalendly }: HeroProps) {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-20 items-start">
-          {/* Left: Content */}
-          <div className="space-y-10">
+          {/* Left: Content - On mobile, appears after image */}
+          <div className="space-y-10 order-2 lg:order-1">
             <div className="space-y-6">
               <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-neutral-200 leading-snug">
                 {heroCopy.headline.slice(1).map((line, i) => (
@@ -59,8 +59,8 @@ export default function Hero({ onOpenCalendly }: HeroProps) {
             </div>
           </div>
 
-          {/* Right: Larger Image - Precision aligned */}
-          <div className="relative flex justify-center lg:justify-end w-full">
+          {/* Right: Larger Image - Precision aligned - On mobile, appears first */}
+          <div className="relative flex justify-center lg:justify-end w-full order-1 lg:order-2">
             <div className="relative w-full max-w-[600px] aspect-[4/3] group">
               {/* Pulsating Heartbeat Glow behind the image */}
               <div className="absolute inset-0 bg-amber-500/15 rounded-[2rem] blur-[60px] animate-pulse"></div>
