@@ -61,8 +61,40 @@ export default function SystemCheckWizard({ config }: { config: QuestionsConfig 
     return { answered, total: questions.length };
   }, [answers, questions.length]);
 
-  function setScore(score: number) {
+  async function setScore(score: number) {
+    if (busy) return; // Prevent multiple clicks
+    
+    // Update score immediately for visual feedback
     setAnswers(prev => ({ ...prev, [q.id]: { ...prev[q.id], score } }));
+    
+    // Auto-advance only if there's no free text field (user can still go back if needed)
+    if (!q.freeTextEnabled) {
+      // Auto-advance after a short delay (gives visual feedback)
+      setTimeout(async () => {
+        try {
+          setError(null);
+          setBusy(true);
+          
+          // Persist the answer
+          if (!token) return;
+          await postJson("/api/system-check/answer", {
+            token,
+            question_id: q.id,
+            score,
+            free_text: null,
+          });
+          
+          // Move to next question
+          setIndex(i => Math.min(i + 1, questions.length));
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } catch (e: any) {
+          setError(e.message || "Save failed");
+        } finally {
+          setBusy(false);
+        }
+      }, 300); // 300ms delay for visual feedback
+    }
+    // If freeTextEnabled, user can still click "Weiter" manually after entering text
   }
 
   function setFreeText(v: string) {
@@ -219,22 +251,25 @@ export default function SystemCheckWizard({ config }: { config: QuestionsConfig 
                   Zurück
                 </button>
 
-                <button
-                  type="button"
-                  onClick={next}
-                  className={`
-                    group relative inline-flex items-center rounded-full glass border px-10 py-4 text-sm font-bold transition-all
-                    ${typeof current.score === "number" 
-                      ? "border-amber-500/20 text-neutral-50 hover:border-amber-500/50 hover:bg-amber-500/5 shadow-[0_0_20px_rgba(245,158,11,0.1)]" 
-                      : "border-white/5 text-neutral-600 cursor-not-allowed"}
-                  `}
-                  disabled={busy || typeof current.score !== "number"}
-                >
-                  <span className="relative z-10">{busy ? "Speichere…" : "Weiter"}</span>
-                  {typeof current.score === "number" && (
+                {/* Manual "Weiter" Button - nur sichtbar wenn bereits eine Auswahl getroffen wurde, aber noch nicht auto-advanced */}
+                {typeof current.score === "number" && !busy && (
+                  <button
+                    type="button"
+                    onClick={next}
+                    className="group relative inline-flex items-center rounded-full glass border border-amber-500/20 px-10 py-4 text-sm font-bold text-neutral-50 transition-all hover:border-amber-500/50 hover:bg-amber-500/5 shadow-[0_0_20px_rgba(245,158,11,0.1)]"
+                  >
+                    <span className="relative z-10">Weiter</span>
                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  )}
-                </button>
+                  </button>
+                )}
+                
+                {/* Loading indicator während auto-advance */}
+                {busy && (
+                  <div className="flex items-center gap-3 text-sm text-neutral-400">
+                    <div className="h-4 w-4 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+                    <span>Speichere…</span>
+                  </div>
+                )}
               </div>
             </section>
           )}
