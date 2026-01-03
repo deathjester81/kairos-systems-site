@@ -10,19 +10,33 @@ export async function sendInternalNotification(payload: {
 
   // MVP fallback: wenn nicht gesetzt, nicht crashen
   if (!apiKey || !from || !to) {
-    console.log("[notify] Missing RESEND_API_KEY/RESEND_FROM_EMAIL/INTERNAL_NOTIFY_EMAIL. Skipping email.");
-    return { skipped: true };
+    console.error("[notify] Missing environment variables:");
+    console.error(`  RESEND_API_KEY: ${apiKey ? "✓ set" : "✗ missing"}`);
+    console.error(`  RESEND_FROM_EMAIL: ${from ? "✓ set" : "✗ missing"}`);
+    console.error(`  INTERNAL_NOTIFY_EMAIL: ${to ? "✓ set" : "✗ missing"}`);
+    return { skipped: true, error: "Missing environment variables" };
   }
 
-  const resend = new Resend(apiKey);
-  await resend.emails.send({
-    from,
-    to,
-    subject: payload.subject,
-    html: payload.html,
-  });
+  try {
+    const resend = new Resend(apiKey);
+    const result = await resend.emails.send({
+      from,
+      to,
+      subject: payload.subject,
+      html: payload.html,
+    });
 
-  return { skipped: false };
+    if (result.error) {
+      console.error("[notify] Resend API error:", result.error);
+      return { skipped: false, error: result.error };
+    }
+
+    console.log("[notify] Email sent successfully:", result.data?.id);
+    return { skipped: false, success: true, id: result.data?.id };
+  } catch (error: any) {
+    console.error("[notify] Exception sending email:", error);
+    return { skipped: false, error: error.message || String(error) };
+  }
 }
 
 /**

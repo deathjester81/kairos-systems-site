@@ -119,15 +119,16 @@ export async function POST(req: Request) {
     .single();
 
   // Internal notify (Resend) with full report. If not configured, notify.ts logs and skips without failing.
+  let notifyResult;
   if (finalReport && finalSession) {
     const reportHtml = formatReportAsHtml(finalReport, finalSession);
-    await sendInternalNotification({
+    notifyResult = await sendInternalNotification({
       subject: `System-Check Submission: ${finalSession.name || finalSession.company || "Anonym"} (${token.slice(0, 8)}...)`,
       html: reportHtml,
     });
   } else {
     // Fallback if report fetch failed (shouldn't happen, but safe)
-    await sendInternalNotification({
+    notifyResult = await sendInternalNotification({
       subject: "System-Check Submission",
       html: `
         <p><b>Token:</b> ${token}</p>
@@ -140,6 +141,15 @@ export async function POST(req: Request) {
         <p><em>Note: Report HTML generation failed. Check logs.</em></p>
       `,
     });
+  }
+
+  // Log notification result for debugging
+  if (notifyResult?.skipped) {
+    console.warn("[submit] Email notification skipped:", notifyResult.error);
+  } else if (notifyResult?.error) {
+    console.error("[submit] Email notification failed:", notifyResult.error);
+  } else {
+    console.log("[submit] Email notification sent:", notifyResult?.id);
   }
 
   return NextResponse.json({ ok: true, token });
