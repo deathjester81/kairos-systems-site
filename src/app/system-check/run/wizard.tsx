@@ -385,10 +385,17 @@ function SubmitScreen({ token, config }: { token: string; config: QuestionsConfi
         <button
           type="button"
           onClick={submit}
-          className="group relative inline-flex items-center rounded-full glass border border-amber-500/20 px-16 py-5 text-sm font-bold text-neutral-50 transition-all hover:border-amber-500/50 hover:bg-amber-500/5 shadow-[0_0_20px_rgba(245,158,11,0.1)] hover:shadow-[0_0_40px_rgba(245,158,11,0.2)]"
+          className="group relative inline-flex items-center rounded-full glass border border-amber-500/20 px-16 py-5 text-sm font-bold text-neutral-50 transition-all hover:border-amber-500/50 hover:bg-amber-500/5 shadow-[0_0_20px_rgba(245,158,11,0.1)] hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] disabled:opacity-50 disabled:cursor-wait"
           disabled={busy}
         >
-          <span className="relative z-10">{busy ? "Analysiere Systemfähigkeit…" : "Report erzeugen"}</span>
+          {busy ? (
+            <>
+              <div className="h-4 w-4 border-2 border-amber-500 border-t-transparent rounded-full animate-spin mr-3"></div>
+              <span className="relative z-10">Analysiere Systemfähigkeit…</span>
+            </>
+          ) : (
+            <span className="relative z-10">Report erzeugen</span>
+          )}
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </button>
         
