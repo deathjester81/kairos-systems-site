@@ -13,7 +13,7 @@ const links = [
   ];
   
   interface NavProps {
-    onOpenCalendly: () => void;
+    onOpenCalendly?: () => void;
   }
 
   export default function Nav({ onOpenCalendly }: NavProps) {
@@ -68,12 +68,14 @@ const links = [
           {/* Right Actions */}
           <div className="flex items-center gap-3">
             {/* Desktop CTA Button */}
-            <button
-              onClick={onOpenCalendly}
-              className="hidden sm:block rounded-full bg-neutral-50 px-6 sm:px-8 py-2.5 text-[11px] uppercase tracking-[0.15em] font-bold text-neutral-950 hover:bg-amber-400 transition-all shadow-lg"
-            >
-              Gespräch
-            </button>
+            {onOpenCalendly && (
+              <button
+                onClick={onOpenCalendly}
+                className="hidden sm:block rounded-full bg-neutral-50 px-6 sm:px-8 py-2.5 text-[11px] uppercase tracking-[0.15em] font-bold text-neutral-950 hover:bg-amber-400 transition-all shadow-lg"
+              >
+                Gespräch
+              </button>
+            )}
 
             {/* Mobile Hamburger Menu Button */}
             <button
@@ -121,15 +123,17 @@ const links = [
                   {l.label}
                 </a>
               ))}
-              <button
-                onClick={() => {
-                  onOpenCalendly();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="mx-4 mt-4 mb-2 rounded-full bg-neutral-50 px-6 py-3 text-sm uppercase tracking-[0.15em] font-bold text-neutral-950 hover:bg-amber-400 transition-all shadow-lg"
-              >
-                Gespräch
-              </button>
+              {onOpenCalendly && (
+                <button
+                  onClick={() => {
+                    onOpenCalendly();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="mx-4 mt-4 mb-2 rounded-full bg-neutral-50 px-6 py-3 text-sm uppercase tracking-[0.15em] font-bold text-neutral-950 hover:bg-amber-400 transition-all shadow-lg"
+                >
+                  Gespräch
+                </button>
+              )}
             </nav>
           </div>
         )}

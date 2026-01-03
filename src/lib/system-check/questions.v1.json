@@ -1,0 +1,47 @@
+{
+    "version": "v1",
+    "axes": [
+      { "id": "systemfaehigkeit", "label": "Systemfähigkeit" },
+      { "id": "prozesse", "label": "Prozesse" },
+      { "id": "fuehrung_kultur", "label": "Führung & Kultur" },
+      { "id": "digitalisierung_daten", "label": "Digitalisierung & Daten" },
+      { "id": "ki_integration", "label": "KI-Integration" }
+    ],
+    "questions": [
+      { "id": "Q01", "axis": "systemfaehigkeit", "text": "Wir haben ein gemeinsames Bild davon, wie unser Unternehmen als System funktioniert (nicht nur Abteilungen).", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q02", "axis": "systemfaehigkeit", "text": "Wenn Schlüsselpersonen ausfallen, laufen Kernabläufe trotzdem stabil weiter.", "reverse": false, "freeTextEnabled": true, "freeTextPrompt": "Wo seid ihr am stärksten personenabhängig?" },
+      { "id": "Q03", "axis": "systemfaehigkeit", "text": "Entscheidungen folgen klaren Regeln/Prinzipien – nicht Tageslaune oder Machtspielen.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q04", "axis": "systemfaehigkeit", "text": "Probleme werden an Ursachen gelöst, nicht nur an Symptomen.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q05", "axis": "systemfaehigkeit", "text": "Wir kennen die wenigen Hebel, die bei uns überproportional Wirkung erzeugen.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q06", "axis": "systemfaehigkeit", "text": "Viele Dinge funktionieren nur, weil einzelne Menschen „heldenhaft“ kompensieren.", "reverse": true, "freeTextEnabled": true, "freeTextPrompt": "Wo kompensieren Menschen heute Systemlücken?" },
+  
+      { "id": "Q07", "axis": "prozesse", "text": "Unsere wichtigsten End-to-End-Prozesse sind definiert (nicht perfekt – aber klar genug).", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q08", "axis": "prozesse", "text": "Durchlaufzeiten passen realistisch zum Markt-/Kundenbedarf.", "reverse": false, "freeTextEnabled": true, "freeTextPrompt": "Welche Durchlaufzeit tut weh – und warum?" },
+      { "id": "Q09", "axis": "prozesse", "text": "Qualität wird im Prozess gesichert (nicht nur am Ende kontrolliert).", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q10", "axis": "prozesse", "text": "Es ist klar, wer im Prozess wofür verantwortlich ist (Ownership).", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q11", "axis": "prozesse", "text": "Prozessänderungen werden kontrolliert eingeführt (nicht chaotisch).", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q12", "axis": "prozesse", "text": "Wir reden über Prozesse, aber im Alltag macht trotzdem jede:r es anders.", "reverse": true, "freeTextEnabled": false },
+  
+      { "id": "Q13", "axis": "fuehrung_kultur", "text": "Führungskräfte verbringen spürbar Zeit mit Führen – nicht nur operativ.", "reverse": false, "freeTextEnabled": true, "freeTextPrompt": "Woran merkst du operative Überlastung in der Führung?" },
+      { "id": "Q14", "axis": "fuehrung_kultur", "text": "Erwartungen sind klar: Was ist „gute Arbeit“ – und woran merken wir das?", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q15", "axis": "fuehrung_kultur", "text": "Konflikte werden angesprochen und genutzt – nicht verdrängt.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q16", "axis": "fuehrung_kultur", "text": "Probleme dürfen früh gemeldet werden (psychologische Sicherheit).", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q17", "axis": "fuehrung_kultur", "text": "Lernen/Verbessern ist Teil der Arbeit, nicht nur ein Projekt-Event.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q18", "axis": "fuehrung_kultur", "text": "Verantwortung wird häufig nach oben delegiert („Chef soll entscheiden“).", "reverse": true, "freeTextEnabled": true, "freeTextPrompt": "Wo wird Verantwortung typischerweise nach oben geschoben?" },
+  
+      { "id": "Q19", "axis": "digitalisierung_daten", "text": "Tools unterstützen den Prozess – der Prozess ist nicht um Tools herum gebaut.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q20", "axis": "digitalisierung_daten", "text": "Daten sind verlässlich genug für Entscheidungen.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q21", "axis": "digitalisierung_daten", "text": "Systeme sind sinnvoll integriert (wenig Medienbrüche, wenig Copy/Paste).", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q22", "axis": "digitalisierung_daten", "text": "Wir wissen, wo wichtige Daten entstehen und wie sie gepflegt werden.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q23", "axis": "digitalisierung_daten", "text": "Standards/Strukturen sind wichtiger als Tool-Vielfalt.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q24", "axis": "digitalisierung_daten", "text": "Wir haben viele Tools, aber wenig echte Transparenz.", "reverse": true, "freeTextEnabled": true, "freeTextPrompt": "Wo entsteht der meiste Medienbruch/Copy-Paste?" },
+  
+      { "id": "Q25", "axis": "ki_integration", "text": "Wir haben eine klare Haltung: Wo KI hilft – und wo sie nichts verloren hat.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q26", "axis": "ki_integration", "text": "KI wird an echten Engpässen eingesetzt – nicht als Spielerei.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q27", "axis": "ki_integration", "text": "Es gibt Mindest-Qualitätsregeln, bevor KI-Outputs genutzt werden.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q28", "axis": "ki_integration", "text": "KI ist in Prozesse eingebettet – nicht nur „Chat“.", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q29", "axis": "ki_integration", "text": "KI-Use-Cases werden messbar gemacht (Zeit, Fehlerquote, Durchlaufzeit etc.).", "reverse": false, "freeTextEnabled": false },
+      { "id": "Q30", "axis": "ki_integration", "text": "Wir erwarten KI-Wirkung, ohne Daten/Prozesse dafür aufzuräumen.", "reverse": true, "freeTextEnabled": true, "freeTextPrompt": "Wo wäre KI spannend, aber ihr seid noch nicht bereit – warum?" }
+    ]
+  }
+  

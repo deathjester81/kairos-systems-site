@@ -2,6 +2,7 @@
 
 import { heroCopy } from "@/lib/copy";
 import FadeOnScroll from "@/components/FadeOnScroll";
+import Link from "next/link";
 
 interface HeroProps {
   onOpenCalendly: () => void;
@@ -48,7 +49,7 @@ export default function Hero({ onOpenCalendly }: HeroProps) {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 pt-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">
               <button
                 onClick={onOpenCalendly}
                 className="group relative inline-flex items-center rounded-full glass border border-amber-500/20 px-10 py-4 text-sm font-bold text-neutral-50 transition-all hover:border-amber-500/50 hover:bg-amber-500/5 shadow-[0_0_20px_rgba(245,158,11,0.1)] hover:shadow-[0_0_30px_rgba(245,158,11,0.2)]"
@@ -56,6 +57,13 @@ export default function Hero({ onOpenCalendly }: HeroProps) {
                 <span className="relative z-10">{heroCopy.cta}</span>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </button>
+              <Link
+                href="/reflexion"
+                className="group relative inline-flex items-center rounded-full border border-white/10 px-10 py-4 text-sm font-bold text-neutral-300 transition-all hover:border-white/20 hover:text-neutral-50 hover:bg-white/5"
+              >
+                <span className="relative z-10">Eigenes System reflektieren</span>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </Link>
             </div>
           </div>
 

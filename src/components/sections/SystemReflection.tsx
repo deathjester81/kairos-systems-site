@@ -1,6 +1,7 @@
 "use client";
 import { reflectionCopy } from "@/lib/copy";
 import FadeOnScroll from "@/components/FadeOnScroll";
+import Link from "next/link";
 
 export default function SystemReflection() {
   return (
@@ -48,12 +49,13 @@ export default function SystemReflection() {
 
         {/* Subtle CTA Button - Same style as Hero */}
         <div className="mt-32 flex justify-center lg:justify-start">
-          <button
+          <Link
+            href="/reflexion"
             className="group relative inline-flex items-center rounded-full glass border border-amber-500/20 px-10 py-4 text-sm font-bold text-neutral-50 transition-all hover:border-amber-500/50 hover:bg-amber-500/5 shadow-[0_0_20px_rgba(245,158,11,0.1)] hover:shadow-[0_0_30px_rgba(245,158,11,0.2)]"
           >
             <span className="relative z-10">Eigenes System reflektieren</span>
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </button>
+          </Link>
         </div>
       </div>
     </FadeOnScroll>
