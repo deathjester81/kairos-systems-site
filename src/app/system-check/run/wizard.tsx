@@ -326,6 +326,11 @@ function SubmitScreen({ token, config }: { token: string; config: QuestionsConfi
           Das System erzeugt nun Ihren persönlichen Report. 
           Wenn Sie möchten, können Sie unten Kontaktinformationen angeben – dies ist jedoch rein optional.
         </p>
+        <div className="mt-6 p-6 rounded-xl bg-amber-500/5 border border-amber-500/20">
+          <p className="text-sm text-neutral-300 leading-relaxed">
+            <strong className="text-amber-500/90">Hinweis:</strong> Die Analyse und Erstellung Ihres Reports kann einige Sekunden bis zu einer Minute dauern. Bitte haben Sie einen Moment Geduld – Sie werden automatisch zum Ergebnis weitergeleitet.
+          </p>
+        </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 pt-8 border-t border-white/5">
