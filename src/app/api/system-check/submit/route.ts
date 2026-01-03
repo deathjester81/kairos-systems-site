@@ -6,7 +6,7 @@ import { loadQuestionsConfig } from "@/lib/system-check/loadQuestions";
 import { computeAxisScores } from "@/lib/system-check/scoring";
 import { buildDeterministicInsights } from "@/lib/system-check/rules";
 import { generateAiJson } from "@/lib/system-check/ai";
-import { sendInternalNotification } from "@/lib/system-check/notify";
+import { sendInternalNotification, formatReportAsHtml } from "@/lib/system-check/notify";
 
 export const runtime = "nodejs";
 
@@ -104,19 +104,43 @@ export async function POST(req: Request) {
 
   if (uErr) return NextResponse.json({ error: uErr.message }, { status: 500 });
 
-  // Internal notify (Resend). If not configured, notify.ts logs and skips without failing.
-  await sendInternalNotification({
-    subject: "System-Check Submission",
-    html: `
-      <p><b>Token:</b> ${token}</p>
-      <p><b>Name:</b> ${name ?? "(none)"}</p>
-      <p><b>Email:</b> ${email ?? "(none)"}</p>
-      <p><b>Company:</b> ${company ?? "(none)"}</p>
-      <p><b>Phone:</b> ${phone ?? "(none)"}</p>
-      <p><b>Status:</b> submitted</p>
-      <p>Report URL (prod): /system-check/report/${token}</p>
-    `,
-  });
+  // Fetch the created report for email
+  const { data: finalReport, error: reportErr } = await supabaseAdmin
+    .from("audit_reports")
+    .select("scores_json,insights_json,ai_json")
+    .eq("session_id", session.id)
+    .single();
+
+  // Get updated session with contact info
+  const { data: finalSession } = await supabaseAdmin
+    .from("audit_sessions")
+    .select("token,name,email,company,phone")
+    .eq("id", session.id)
+    .single();
+
+  // Internal notify (Resend) with full report. If not configured, notify.ts logs and skips without failing.
+  if (finalReport && finalSession) {
+    const reportHtml = formatReportAsHtml(finalReport, finalSession);
+    await sendInternalNotification({
+      subject: `System-Check Submission: ${finalSession.name || finalSession.company || "Anonym"} (${token.slice(0, 8)}...)`,
+      html: reportHtml,
+    });
+  } else {
+    // Fallback if report fetch failed (shouldn't happen, but safe)
+    await sendInternalNotification({
+      subject: "System-Check Submission",
+      html: `
+        <p><b>Token:</b> ${token}</p>
+        <p><b>Name:</b> ${name ?? "(none)"}</p>
+        <p><b>Email:</b> ${email ?? "(none)"}</p>
+        <p><b>Company:</b> ${company ?? "(none)"}</p>
+        <p><b>Phone:</b> ${phone ?? "(none)"}</p>
+        <p><b>Status:</b> submitted</p>
+        <p>Report URL: /system-check/report/${token}</p>
+        <p><em>Note: Report HTML generation failed. Check logs.</em></p>
+      `,
+    });
+  }
 
   return NextResponse.json({ ok: true, token });
 }
