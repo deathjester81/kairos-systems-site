@@ -7,7 +7,6 @@ export default function SystemReflection() {
   return (
     <FadeOnScroll id="reflection" className="relative pt-44 pb-44 px-6 overflow-hidden bg-[#0a0a0a]">
       {/* Subtle background atmosphere - Heartbeat effect centered */}
-      <div className="absolute inset-0 bg-[#0a0a0a]"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-amber-500/5 rounded-full blur-[140px] animate-pulse"></div>
       
       <div className="relative mx-auto max-w-7xl w-full">

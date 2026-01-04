@@ -1,12 +1,12 @@
 "use client";
 import { problemCopy } from "@/lib/copy";
 import FadeOnScroll from "@/components/FadeOnScroll";
+import Image from "next/image";
 
 export default function Problem() {
   return (
     <FadeOnScroll id="problem" className="relative pt-44 pb-32 px-6 overflow-hidden bg-[#0a0a0a]">
       {/* Subtle background atmosphere */}
-      <div className="absolute inset-0 bg-[#0a0a0a]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(245,158,11,0.05),transparent_70%)]"></div>
       
       <div className="relative mx-auto max-w-7xl w-full">
@@ -57,10 +57,11 @@ export default function Problem() {
               
               {/* Image Frame - Same as Hero but WITHOUT pulsating glow */}
               <div className="relative z-10 w-full h-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-700 bg-[#0a0a0a]">
-                <img 
+                <Image 
                   src="/pics/problem-no-system.jpeg" 
                   alt="Problem: Kein System"
-                  className="w-full h-full object-cover grayscale-[0.1] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                  fill
+                  className="object-cover grayscale-[0.1] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
                 />
                 {/* Subtle overlay for integration */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 via-transparent to-transparent"></div>

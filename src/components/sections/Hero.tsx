@@ -3,6 +3,7 @@
 import { heroCopy } from "@/lib/copy";
 import FadeOnScroll from "@/components/FadeOnScroll";
 import Link from "next/link";
+import Image from "next/image";
 
 interface HeroProps {
   onOpenCalendly: () => void;
@@ -12,7 +13,6 @@ export default function Hero({ onOpenCalendly }: HeroProps) {
   return (
     <FadeOnScroll id="hero" className="relative pt-44 pb-32 px-6 overflow-hidden min-h-screen flex flex-col">
       {/* Subtle background atmosphere */}
-      <div className="absolute inset-0 bg-[#0a0a0a]"></div>
       <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-amber-500/10 rounded-full blur-[120px] animate-pulse"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-amber-600/5 rounded-full blur-[100px]" style={{ animation: 'pulse 4s ease-in-out infinite 2s' }}></div>
       
@@ -75,10 +75,12 @@ export default function Hero({ onOpenCalendly }: HeroProps) {
               
               {/* The "Heartbeat" container */}
               <div className="relative z-10 w-full h-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-700">
-                <img 
+                <Image 
                   src="/pics/system-hero.jpeg" 
                   alt="Kairos System Architecture"
-                  className="w-full h-full object-cover grayscale-[0.1] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                  fill
+                  priority
+                  className="object-cover grayscale-[0.1] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
                 />
                 {/* Subtle overlay for integration */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 via-transparent to-transparent"></div>

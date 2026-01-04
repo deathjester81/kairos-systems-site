@@ -6,7 +6,6 @@ export default function HowWeWork() {
   return (
     <FadeOnScroll id="how" className="relative px-6 py-32 bg-[#0a0a0a] overflow-hidden">
       {/* Subtle background atmosphere - Heartbeat effect centered between the 4 boxes */}
-      <div className="absolute inset-0 bg-[#0a0a0a]"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-amber-500/7 rounded-full blur-[120px]" style={{ animation: 'pulse 6s ease-in-out infinite' }}></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-amber-600/4 rounded-full blur-[100px]" style={{ animation: 'pulse 8s ease-in-out infinite 3s' }}></div>
       

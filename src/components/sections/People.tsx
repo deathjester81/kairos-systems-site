@@ -7,7 +7,6 @@ export default function People() {
   return (
     <FadeOnScroll id="people" className="relative pt-64 pb-44 px-6 bg-[#0a0a0a]">
       {/* Subtle background atmosphere */}
-      <div className="absolute inset-0 bg-[#0a0a0a]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(245,158,11,0.03),transparent_50%)]"></div>
       
       <div className="relative mx-auto max-w-7xl w-full">

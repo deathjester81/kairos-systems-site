@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface FadeOnScrollProps {
   children: React.ReactNode;
@@ -14,102 +14,56 @@ export default function FadeOnScroll({ children, className = "", id }: FadeOnScr
   const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
-    // Check if device is mobile (less than 768px)
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener("resize", checkMobile);
-    
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  useEffect(() => {
+  const updatePosition = useCallback(() => {
     const section = sectionRef.current;
-    if (!section || isMobile) {
-      // On mobile, always keep normal state
+    if (!section || isMobile) return;
+
+    const rect = section.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    // Section below viewport – start state
+    if (rect.top >= viewportHeight) {
+      setTransform("translateY(100px)");
+      setOpacity(0.3);
+      return;
+    }
+
+    // Section entering from bottom
+    if (rect.top < viewportHeight && rect.top > -rect.height) {
+      const visibleFromBottom = viewportHeight - rect.top;
+      
+      if (visibleFromBottom > 0 && visibleFromBottom < viewportHeight * 0.3) {
+        const progress = visibleFromBottom / (viewportHeight * 0.3);
+        setTransform(`translateY(${100 * (1 - progress)}px)`);
+        setOpacity(0.3 + progress * 0.7);
+        return;
+      }
+    }
+
+    // Fully visible
+    setTransform("translateY(0)");
+    setOpacity(1);
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (isMobile) {
       setTransform("translateY(0)");
       setOpacity(1);
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const viewportHeight = window.innerHeight;
-        entries.forEach((entry) => {
-          // Wenn die Sektion von unten hereinkommt
-          if (entry.isIntersecting) {
-            const rect = entry.boundingClientRect;
-            
-            // Berechne wie weit die Sektion schon sichtbar ist
-            const visibleFromBottom = viewportHeight - rect.top;
-            
-            // Slide-in Effekt: Starte von unten (translateY(100px)) und gleite rein
-            if (visibleFromBottom > 0 && visibleFromBottom < viewportHeight * 0.3) {
-              // Erste 30% des Viewports: Gleite von unten rein
-              const progress = Math.min(visibleFromBottom / (viewportHeight * 0.3), 1);
-              const translateY = 100 * (1 - progress); // Von 100px zu 0
-              const opacityValue = Math.min(0.3 + progress * 0.7, 1); // Von 0.3 zu 1
-              setTransform(`translateY(${translateY}px)`);
-              setOpacity(opacityValue);
-            } else {
-              // Vollständig sichtbar
-              setTransform("translateY(0)");
-              setOpacity(1);
-            }
-          } else if (entry.boundingClientRect.top > viewportHeight) {
-            // Sektion ist noch unterhalb des Viewports - starte von unten
-            setTransform("translateY(100px)");
-            setOpacity(0.3);
-          }
-        });
-      },
-      {
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-        rootMargin: "0px",
-      }
-    );
+    // Use passive scroll listener for performance
+    window.addEventListener("scroll", updatePosition, { passive: true });
+    updatePosition(); // Initial check
 
-    observer.observe(section);
-
-    // Scroll Listener für präzisere Kontrolle
-    const handleScroll = () => {
-      if (!section) return;
-      const rect = section.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      // Wenn Sektion von unten hereinkommt
-      if (rect.top < viewportHeight && rect.top > -rect.height) {
-        const visibleFromBottom = viewportHeight - rect.top;
-        
-        if (visibleFromBottom > 0 && visibleFromBottom < viewportHeight * 0.3) {
-          // Erste 30%: Slide-in von unten
-          const progress = Math.min(visibleFromBottom / (viewportHeight * 0.3), 1);
-          const translateY = 100 * (1 - progress);
-          const opacityValue = Math.min(0.3 + progress * 0.7, 1);
-          setTransform(`translateY(${translateY}px)`);
-          setOpacity(opacityValue);
-        } else if (rect.top <= 0) {
-          // Sektion ist vollständig sichtbar oder darüber
-          setTransform("translateY(0)");
-          setOpacity(1);
-        }
-      } else if (rect.top >= viewportHeight) {
-        // Noch nicht sichtbar - starte von unten
-        setTransform("translateY(100px)");
-        setOpacity(0.3);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isMobile]);
+    return () => window.removeEventListener("scroll", updatePosition);
+  }, [isMobile, updatePosition]);
 
   return (
     <section
@@ -120,6 +74,7 @@ export default function FadeOnScroll({ children, className = "", id }: FadeOnScr
         opacity,
         transform,
         transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
+        willChange: isMobile ? "auto" : "opacity, transform",
       }}
     >
       {children}

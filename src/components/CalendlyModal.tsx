@@ -62,11 +62,11 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
             src="https://calendly.com/fabrizio-notter/ihr-system?embed_type=Inline&hide_event_type_details=1&hide_gdpr_banner=1"
             width="100%"
             height="100%"
-            frameBorder="0"
+            style={{ border: 0 }}
             className="relative z-10 w-full h-full"
             title="Calendly Booking"
             allow="camera; microphone; geolocation"
-          ></iframe>
+          />
         </div>
       </div>
     </div>

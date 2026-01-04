@@ -6,7 +6,6 @@ export default function Perspective() {
   return (
     <FadeOnScroll id="perspective" className="relative pt-44 pb-44 px-6 overflow-hidden bg-[#0a0a0a]">
       {/* Subtle background atmosphere - Heartbeat effect between Zustand 2 and 3 */}
-      <div className="absolute inset-0 bg-[#0a0a0a]"></div>
       <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-amber-500/7 rounded-full blur-[120px]" style={{ animation: 'pulse 6s ease-in-out infinite' }}></div>
       <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-amber-600/4 rounded-full blur-[100px]" style={{ animation: 'pulse 8s ease-in-out infinite 3s' }}></div>
       

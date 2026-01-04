@@ -9,7 +9,6 @@ const links = [
     { href: "#reflection", label: "System-Reflexion" },
     { href: "#people", label: "Menschen" },
     { href: "#contact", label: "Kontakt" },
-    { href: "#system", label: "System" },
   ];
   
   interface NavProps {
