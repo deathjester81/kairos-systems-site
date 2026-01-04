@@ -1,8 +1,8 @@
 export const SYSTEM_CHECK_CONFIG = {
   version: "v1",
 
-  // Likert mapping: 1..5 -> 20..100
-  likertToScore: (v: number) => v * 20,
+  // Likert mapping: 1..5 -> 0..100
+  likertToScore: (v: number) => (v - 1) * 25,
 
   freeTextMaxLen: 400,
   contact: {
