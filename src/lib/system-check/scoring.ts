@@ -23,9 +23,9 @@ export function computeAxisScores(
   for (const a of answers) {
     const q = qById.get(a.question_id);
     if (!q) continue;
-    let v = a.score;
-    if (q.reverse) v = 6 - v;
-    const score0100 = SYSTEM_CHECK_CONFIG.likertToScore(v);
+    let score0100 = SYSTEM_CHECK_CONFIG.likertToScore(a.score);
+    // Reverse: invert the score (0% becomes 100%, 100% becomes 0%)
+    if (q.reverse) score0100 = 100 - score0100;
 
     const key = q.axis;
     const cur = sums.get(key) ?? { total: 0, count: 0 };
