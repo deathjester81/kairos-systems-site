@@ -27,7 +27,7 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
       onClick={onClose}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-[#0a0a0a]/95 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-[#0a0a0a]/95 backdrop-blur-sm pointer-events-none"></div>
 
       {/* Modal Content */}
       <div
@@ -56,14 +56,14 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
         {/* Calendly Embed Container with subtle amber glow */}
         <div className="relative h-[calc(90vh-80px)] sm:h-[calc(90vh-100px)] bg-[#1a1a1a] overflow-hidden">
           {/* Subtle amber glow around the iframe */}
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-transparent pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-transparent pointer-events-none z-0"></div>
           
           <iframe
             src="https://calendly.com/fabrizio-notter/ihr-system?embed_type=Inline&hide_event_type_details=1&hide_gdpr_banner=1"
             width="100%"
             height="100%"
             style={{ border: 0 }}
-            className="relative z-10 w-full h-full"
+            className="relative z-20 w-full h-full"
             title="Calendly Booking"
             allow="camera; microphone; geolocation"
           />

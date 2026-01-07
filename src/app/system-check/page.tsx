@@ -50,20 +50,20 @@ export default function SystemCheckLanding() {
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 pt-4">
                   <div className="space-y-2">
                     <div className="text-amber-500 font-bold text-2xl tracking-tighter">30</div>
-                    <div className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Fragen</div>
+                    <div className="text-[10px] uppercase tracking-widest text-neutral-400 font-bold">Fragen</div>
                   </div>
                   <div className="space-y-2">
                     <div className="text-amber-500 font-bold text-2xl tracking-tighter">AI</div>
-                    <div className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Analyse</div>
+                    <div className="text-[10px] uppercase tracking-widest text-neutral-400 font-bold">Analyse</div>
                   </div>
                   <div className="space-y-2 col-span-2 sm:col-span-1">
                     <div className="text-amber-500 font-bold text-2xl tracking-tighter">Live</div>
-                    <div className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Ergebnis</div>
+                    <div className="text-[10px] uppercase tracking-widest text-neutral-400 font-bold">Ergebnis</div>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-12 border-t border-white/5 flex flex-col sm:flex-row items-center gap-10">
+              <div className="pt-12 border-t border-white/10 flex flex-col sm:flex-row items-center gap-10">
                 <Link
                   href="/system-check/run"
                   className="group relative inline-flex items-center rounded-full glass border border-amber-500/20 px-10 py-4 text-sm font-bold text-neutral-50 transition-all hover:border-amber-500/50 hover:bg-amber-500/5 shadow-[0_0_30px_rgba(245,158,11,0.1)] hover:shadow-[0_0_50px_rgba(245,158,11,0.25)] hover:scale-105 active:scale-95"
@@ -77,7 +77,7 @@ export default function SystemCheckLanding() {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </Link>
                 
-                <div className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-bold max-w-[200px] leading-relaxed">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-bold max-w-[200px] leading-relaxed">
                   100% anonym möglich. <br/>Kein E-Mail-Zwang.
                 </div>
               </div>
@@ -87,7 +87,7 @@ export default function SystemCheckLanding() {
               <FadeOnScroll className="space-y-8">
                 <div className="flex items-center gap-4">
                   <div className="h-px w-8 bg-amber-500/30"></div>
-                  <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-500">Scope</h2>
+                  <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-400">Scope</h2>
                 </div>
                 <ul className="space-y-8 pl-4">
                   {[
@@ -96,18 +96,18 @@ export default function SystemCheckLanding() {
                     { title: "Rollenübergreifend", desc: "Vom Shopfloor bis zum C-Level relevant." }
                   ].map((item, i) => (
                     <li key={i} className="group relative">
-                      <div className="absolute -left-4 top-0 bottom-0 w-[1px] bg-white/5 group-hover:bg-amber-500/30 transition-colors"></div>
+                      <div className="absolute -left-4 top-0 bottom-0 w-[1px] bg-white/10 group-hover:bg-amber-500/30 transition-colors"></div>
                       <div className="text-[11px] font-bold text-neutral-300 uppercase tracking-wider mb-1 group-hover:text-amber-500 transition-colors">{item.title}</div>
-                      <div className="text-xs text-neutral-500 leading-relaxed font-light">{item.desc}</div>
+                      <div className="text-xs text-neutral-400 leading-relaxed font-light">{item.desc}</div>
                     </li>
                   ))}
                 </ul>
               </FadeOnScroll>
 
-              <FadeOnScroll className="space-y-6 pt-8 border-t border-white/5">
+              <FadeOnScroll className="space-y-6 pt-8 border-t border-white/10">
                 <div className="flex items-center gap-4">
-                  <div className="h-px w-8 bg-neutral-800"></div>
-                  <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-600">Disclaimer</h2>
+                  <div className="h-px w-8 bg-neutral-600"></div>
+                  <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-400">Disclaimer</h2>
                 </div>
                 <div className="grid grid-cols-1 gap-4 pl-4">
                   {[
@@ -115,8 +115,8 @@ export default function SystemCheckLanding() {
                     "Kein Sales-Pitch",
                     "Kein Datenverkauf"
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-[9px] text-neutral-600 uppercase tracking-widest font-black">
-                      <div className="h-1 w-1 rounded-full bg-neutral-800"></div>
+                    <div key={i} className="flex items-center gap-3 text-[9px] text-neutral-400 uppercase tracking-widest font-black">
+                      <div className="h-1 w-1 rounded-full bg-neutral-600"></div>
                       <span>{item}</span>
                     </div>
                   ))}
@@ -125,13 +125,13 @@ export default function SystemCheckLanding() {
             </aside>
           </div>
 
-          <footer className="mt-32 pt-12 border-t border-white/5">
+          <footer className="mt-32 pt-12 border-t border-white/10">
             <div className="grid md:grid-cols-2 gap-12 items-end">
-              <p className="text-[10px] text-neutral-600 font-bold uppercase tracking-[0.2em] leading-relaxed max-w-md">
+              <p className="text-[10px] text-neutral-400 font-bold uppercase tracking-[0.2em] leading-relaxed max-w-md">
                 Analyse auf Basis Ihrer Selbsteinschätzung. KI-generierte Hypothesen zur Reflexion. Löschung nach 30 Tagen (MVP Policy).
               </p>
               <div className="text-right hidden md:block">
-                <span className="text-[10px] text-neutral-800 font-black tracking-[0.5em] uppercase italic">
+                <span className="text-[10px] text-neutral-500 font-black tracking-[0.5em] uppercase italic">
                   Kairos Systems Audit v1.0
                 </span>
               </div>

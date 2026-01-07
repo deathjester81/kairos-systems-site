@@ -37,6 +37,7 @@ export async function POST(req: Request) {
   const email = clampLen(body.email, SYSTEM_CHECK_CONFIG.contact.emailMaxLen);
   const company = clampLen(body.company, SYSTEM_CHECK_CONFIG.contact.companyMaxLen);
   const phone = clampLen(body.phone, SYSTEM_CHECK_CONFIG.contact.phoneMaxLen);
+  const additionalFeedback = clampLen(body.additionalFeedback, 2000); // Max 2000 chars for feedback
 
   const { data: session, error: sErr } = await supabaseAdmin
     .from("audit_sessions")
@@ -90,7 +91,7 @@ export async function POST(req: Request) {
 
   if (rErr) return NextResponse.json({ error: rErr.message }, { status: 500 });
 
-  // Update session -> submitted + contact fields
+  // Update session -> submitted + contact fields + additional feedback
   const { error: uErr } = await supabaseAdmin
     .from("audit_sessions")
     .update({
@@ -99,6 +100,7 @@ export async function POST(req: Request) {
       email,
       company,
       phone,
+      additional_feedback: additionalFeedback,
     })
     .eq("id", session.id);
 
