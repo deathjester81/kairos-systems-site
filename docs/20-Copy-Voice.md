@@ -1,4 +1,4 @@
-# Voice & Tone (Kairos)
+# Voice & Tone (STRUQTERA)
 
 ## Tone mix
 - 50% calm, clear, human

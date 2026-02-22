@@ -182,7 +182,7 @@ export function formatReportAsHtml(report: {
         ` : ''}
 
         <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #333; color: #666; font-size: 12px;">
-          <p>Report URL: <a href="https://kairos-systems-site.vercel.app/system-check/report/${session.token}" style="color: #f59e0b;">https://kairos-systems-site.vercel.app/system-check/report/${session.token}</a></p>
+          <p>Report URL: <a href="https://struqtera-site.vercel.app/system-check/report/${session.token}" style="color: #f59e0b;">https://struqtera-site.vercel.app/system-check/report/${session.token}</a></p>
         </div>
       </div>
     </body>

@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kairos Systems – Machen Sie aus Ihrer Firma ein System",
+  title: "STRUQTERA – Machen Sie aus Ihrer Firma ein System",
   description: "Wir bauen mit Ihnen ein holistisches Unternehmenssystem: Werte, Prozesse, Verantwortlichkeiten, Standards, Führung – und integrieren Digitalisierung & KI logisch.",
   keywords: ["Unternehmenssystem", "Organisationsentwicklung", "Systemarchitektur", "KMU", "Schweiz", "Beratung"],
-  authors: [{ name: "Kairos Systems" }],
+  authors: [{ name: "STRUQTERA" }],
   openGraph: {
-    title: "Kairos Systems – Machen Sie aus Ihrer Firma ein System",
+    title: "STRUQTERA – Machen Sie aus Ihrer Firma ein System",
     description: "Ein Unternehmen, das trägt – ohne Sie permanent zu binden.",
     type: "website",
     locale: "de_CH",

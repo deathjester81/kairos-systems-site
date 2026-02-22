@@ -77,7 +77,7 @@ export default function Hero({ onOpenCalendly }: HeroProps) {
               <div className="relative z-10 w-full h-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-700">
                 <Image 
                   src="/pics/system-hero.jpeg" 
-                  alt="Kairos System Architecture"
+                  alt="STRUQTERA System Architecture"
                   fill
                   priority
                   className="object-cover grayscale-[0.1] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"

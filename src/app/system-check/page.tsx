@@ -132,7 +132,7 @@ export default function SystemCheckLanding() {
               </p>
               <div className="text-right hidden md:block">
                 <span className="text-[10px] text-neutral-500 font-black tracking-[0.5em] uppercase italic">
-                  Kairos Systems Audit v1.0
+                  STRUQTERA Audit v1.0
                 </span>
               </div>
             </div>

@@ -29,7 +29,7 @@ export default function Page() {
         <Contact onOpenCalendly={() => setIsCalendlyOpen(true)} />
       </main>
       <footer className="border-t border-neutral-800 px-6 py-12 text-sm text-neutral-500">
-        <div className="mx-auto max-w-5xl">© {new Date().getFullYear()} Kairos Systems</div>
+        <div className="mx-auto max-w-5xl">© {new Date().getFullYear()} STRUQTERA</div>
       </footer>
       <CalendlyModal isOpen={isCalendlyOpen} onClose={() => setIsCalendlyOpen(false)} />
     </div>

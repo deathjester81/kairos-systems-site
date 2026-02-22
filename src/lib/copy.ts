@@ -1,5 +1,5 @@
 export const heroCopy = {
-    label: "Das Kairos System",
+    label: "Das STRUQTERA System",
     headline: [
       "Machen Sie aus Ihrer Firma ein System.",
       "Ein Unternehmen, das trägt –",
@@ -110,7 +110,7 @@ export const heroCopy = {
     label: "Menschen",
     title: "Menschen",
     intro: [
-      "Kairos ist kein anonymer Beratungsapparat.",
+      "STRUQTERA ist kein anonymer Beratungsapparat.",
       "Sie arbeiten mit uns – direkt.",
     ],
     people: [
@@ -215,6 +215,6 @@ export const heroCopy = {
     ],
     ctaPrimary: "Termin anfragen",
     ctaSecondary: "E-Mail schreiben",
-    email: "hello@kairos-systems.ch",
+    email: "hello@struqtera.ch",
   };
   

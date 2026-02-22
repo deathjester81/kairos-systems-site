@@ -1,4 +1,4 @@
-# Kairos Systems – Internal Website Mock (v1)
+# STRUQTERA – Internal Website Mock (v1)
 
 ## Purpose
 Internal one-pager mock to align Kai + Fabri on positioning, tone, and experience.

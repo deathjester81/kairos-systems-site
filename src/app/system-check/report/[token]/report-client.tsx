@@ -322,14 +322,14 @@ export default function ReportClient({ token }: { token: string }) {
             <div className="grid md:grid-cols-2 gap-12 items-end">
               <div className="space-y-4">
                 <div className="text-[10px] text-neutral-400 font-black tracking-[0.5em] uppercase italic">
-                  Kairos Systems Intelligence
+                  STRUQTERA Intelligence
                 </div>
                 <p className="text-[10px] text-neutral-300 font-bold uppercase tracking-[0.2em] leading-relaxed max-w-md">
                   Vertrauliche Analyse. Nur zur internen Verwendung. KI-generierte Hypothesen ersetzen keine professionelle Beratung.
                 </p>
               </div>
               <div className="text-right text-neutral-400 text-[10px] font-bold uppercase tracking-widest">
-                &copy; {new Date().getFullYear()} Kairos Systems GmbH
+                &copy; {new Date().getFullYear()} STRUQTERA GmbH
               </div>
             </div>
           </footer>

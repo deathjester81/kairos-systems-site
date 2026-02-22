@@ -47,7 +47,7 @@ const links = [
             onClick={(e) => scrollToSection(e, "#hero")}
             className="text-lg sm:text-xl font-bold tracking-tighter text-neutral-50 hover:text-amber-400 transition-colors"
           >
-            Kairos Systems
+            STRUQTERA
           </a>
 
           {/* Desktop Navigation Pill */}

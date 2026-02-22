@@ -7,6 +7,8 @@ interface CalendlyModalProps {
   onClose: () => void;
 }
 
+const CALENDLY_URL = "https://calendly.com/fabrizio-notter/ihr-system";
+
 export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
   useEffect(() => {
     if (isOpen) {
@@ -18,6 +20,11 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
+
+  const handleOpenCalendly = () => {
+    window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
+    onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -31,7 +38,7 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
 
       {/* Modal Content */}
       <div
-        className="relative z-10 w-full max-w-5xl h-[90vh] max-h-[90vh] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]"
+        className="relative z-10 w-full max-w-2xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with Amber accent */}
@@ -53,20 +60,39 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
           </button>
         </div>
 
-        {/* Calendly Embed Container with subtle amber glow */}
-        <div className="relative h-[calc(90vh-80px)] sm:h-[calc(90vh-100px)] bg-[#1a1a1a] overflow-hidden">
-          {/* Subtle amber glow around the iframe */}
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-transparent pointer-events-none z-0"></div>
-          
-          <iframe
-            src="https://calendly.com/fabrizio-notter/ihr-system?embed_type=Inline&hide_event_type_details=1&hide_gdpr_banner=1"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            className="relative z-20 w-full h-full"
-            title="Calendly Booking"
-            allow="camera; microphone; geolocation"
-          />
+        {/* Content */}
+        <div className="p-8 sm:p-12 space-y-8">
+          <div className="space-y-4">
+            <p className="text-base sm:text-lg text-neutral-300 font-light leading-relaxed">
+              Calendly öffnet sich in einem neuen Fenster, damit Sie Ihren Termin bequem buchen können.
+            </p>
+            <div className="flex items-center gap-3 text-sm text-neutral-400">
+              <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Funktioniert in allen Browsern, inklusive Firefox</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <button
+              onClick={handleOpenCalendly}
+              className="group relative inline-flex items-center justify-center rounded-full bg-amber-500 px-8 py-4 text-base font-bold text-neutral-950 transition-all hover:bg-amber-400 hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(245,158,11,0.3)]"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                Termin buchen
+                <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+            </button>
+            <button
+              onClick={onClose}
+              className="px-8 py-4 text-base font-medium text-neutral-400 hover:text-neutral-200 transition-colors"
+            >
+              Abbrechen
+            </button>
+          </div>
         </div>
       </div>
     </div>

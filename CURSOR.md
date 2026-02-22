@@ -1,4 +1,4 @@
-# Cursor Instructions (Kairos Website)
+# Cursor Instructions (STRUQTERA Website)
 
 - Keep changes small and reversible.
 - Do not change directory structure.
