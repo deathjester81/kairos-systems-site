@@ -129,8 +129,8 @@ export const heroCopy = {
         role: "Gründer – Struktur & Wirksamkeit",
         facts: [
           "15+ Jahre Leadership und Transformationsarbeit in komplexen Organisationen. Projekte mit messbarer Wirkung, von struktureller Neuausrichtung bis zu zweistelligen Millionen-Effekten.",
-          "Ich arbeite am Kern eines Unternehmens: an Prozessen mit klarer Verantwortung, an Strukturen, die unter Druck halten, und an Systemen, die nicht von einzelnen Personen abhängen.",
-          "Digitalisierung und KI integriere ich dort, wo sie strukturelle Wirkung erzeugen - nicht als Tool-Show, sondern als sicherer Produktivitätshebel im System.",
+          "Ich arbeite am Kern eines Unternehmens: an Prozessen mit klarer Verantwortung, an Strukturen, die unter Druck halten, und an Systemen, die nicht von einzelnen Personen abhängig sind.",
+          "Digitalisierung und KI integriere ich dort, wo sie strukturelle Wirkung erzeugen. Keine Tool-Show, sondern als sicherer Produktivitätshebel im System.",
         ],
         stance:
           "Ich baue Systeme, die im Alltag funktionieren. Nicht auf Folien.",
