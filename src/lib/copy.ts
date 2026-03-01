@@ -115,7 +115,7 @@ export const heroCopy = {
     people: [
       {
         name: "Kai Mossig",
-        role: "Founder",
+        role: "Gründer",
         facts: [
           "Mehr als 25 Jahre Führungserfahrung in unterschiedlichen Rollen und Geschäftsfeldern, Mitarbeit und Leitung von Innovations- und Transformationsprojekten mit nachhaltigem Erfolg.",
           "Mich begeistert die Arbeit im Team, um Prozesse zu definieren und gemeinsam Leben zu lassen, zum Nutzen aller Beteiligten. \"Work smarter, not harder.\"",
@@ -126,7 +126,7 @@ export const heroCopy = {
       },
       {
         name: "Fabrizio Notter",
-        role: "Gründer – Struktur & Wirksamkeit",
+        role: "Gründer",
         facts: [
           "15+ Jahre Leadership und Transformationsarbeit in komplexen Organisationen. Projekte mit messbarer Wirkung, von struktureller Neuausrichtung bis zu zweistelligen Millionen-Effekten.",
           "Ich arbeite am Kern eines Unternehmens: an Prozessen mit klarer Verantwortung, an Strukturen, die unter Druck halten, und an Systemen, die nicht von einzelnen Personen abhängig sind.",
