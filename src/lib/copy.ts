@@ -2,16 +2,15 @@ export const heroCopy = {
     label: "Das STRUQTERA System",
     headline: [
       "Machen Sie aus Ihrer Firma ein System.",
-      "Ein Unternehmen, das trägt –",
-      "ohne Sie permanent zu binden, Ihr Team zu überlasten",
-      "und unnötig Geld zu verbrennen.",
+      "Ein Unternehmen, das auch dann funktioniert,",
+      "wenn Sie nicht permanent eingreifen.",
     ],
     subline: [
-      "Wir bauen mit Ihnen und Ihrem Team ein holistisches Unternehmenssystem,",
-      "getragen von klaren Werten, Prozessen, Verantwortlichkeiten,",
-      "Standards und Führung –",
-      "und integrieren Digitalisierung & KI logisch,",
-      "statt sie als Flickwerk drüberzulegen.",
+      "Wir bauen mit Ihnen ein System, das sich selbst trägt.",
+      "Stark geführt, mit klaren Prozessen und Verantwortlichkeiten.",
+      "Digitalisierung und KI werden so eingebettet,",
+      "dass sie entlasten statt zusätzlich zu verkomplizieren.",
+      "Nicht als Trend, sondern als stabiles Fundament für Wachstum, Übergabe und Entlastung.",
     ],
     cta: "Ihr System starten",
   };
@@ -19,21 +18,21 @@ export const heroCopy = {
 
   export const problemCopy = {
     label: "Problem",
-    title: "Warum so viele Unternehmen ihre Leistungsträger binden, statt zu tragen",
+    title: "Ihr Unternehmen funktioniert. Aber nur, weil Sie da sind.",
     intro: [
-      "Viele Unternehmen sind nicht als System gewachsen,",
-      "sondern als Sammlung von Reparaturen.",
+      "Die meisten Unternehmen sind nicht als System gewachsen,",
+      "sondern als Reaktion auf das, was gerade gebrannt hat.",
     ],
     bullets: [
       "Prozesse existieren, aber tragen nicht.",
       "Verantwortung ist verteilt, aber nicht klar.",
       "Standards sind optional – und damit wirkungslos.",
-      ["Digitalisierung und KI verstärken Komplexität,", "weil sie nicht ins Gesamtsystem eingebettet sind."],
-      ["Das Unternehmen funktioniert nur,", "wenn bestimmte Personen permanent eingreifen."],
+      ["Digitalisierung und KI verstärken Komplexität,", "wenn die Basis nicht stabil ist."],
+      ["Wachstum, Übergabe oder Entlastung bleiben Theorie,", "solange das Fundament nicht trägt."],
     ],
     outro: [
       "Das ist kein individuelles Versagen.",
-      "Es ist das Ergebnis fehlender Systemarchitektur.",
+      "Es ist das Ergebnis einer Struktur, die nie bewusst gebaut wurde.",
     ],
   };
 
@@ -79,25 +78,25 @@ export const heroCopy = {
     label: "Prozess",
     title: "Wie wir arbeiten",
     intro: [
-      "Keine Folien-Beratung. Keine Tool-Show.",
-      "Wir bauen Systemfähigkeit – Schritt für Schritt, integriert ins reale Geschäft.",
+      "Wir arbeiten dort, wo Ihr Unternehmen tatsächlich steht.",
+      "Nicht in der Theorie, sondern im laufenden Betrieb.",
     ],
     steps: [
       {
         title: "Diagnose",
-        text: "Wir machen sichtbar, was heute trägt – und was nur durch Intervention funktioniert.",
+        text: "Wir machen sichtbar, was Ihr Unternehmen trägt, was nur durch Intervention funktioniert und wo Energie, Zeit und Geld verloren gehen.",
       },
       {
-        title: "System-Design",
-        text: "Wir übersetzen Ziele in klare Werte, Prozesse, Verantwortlichkeiten, Standards und Führungsprinzipien.",
+        title: "Architektur",
+        text: "Wir übersetzen Ziele in Struktur: Werte, Prozesse, Verantwortlichkeiten, Standards und Führungsprinzipien. Nicht als Papier, sondern als belastbares System.",
       },
       {
-        title: "Umsetzung",
-        text: "Wir verankern das Design im Alltag – pragmatisch, testbar, ohne Parallelwelten. Digitalisierung und KI tragend integriert.",
+        title: "Verankerung",
+        text: "Das System wird im laufenden Betrieb gelebt: keine Parallelwelt, keine PowerPoint-Realität, sondern konkrete Veränderung im Alltag – spürbar und messbar.",
       },
       {
-        title: "Stabilisierung",
-        text: "Wir schließen die Lücken, bis das System ohne Dauerfeuer funktioniert – und besser wird, wenn Sie am System arbeiten.",
+        title: "Vertiefung",
+        text: "Wir schließen Lücken, automatisieren sinnvoll und integrieren KI dort, wo sie Substanz schafft – nicht aus Trenddruck.",
       },
     ],
     outro: [
@@ -127,14 +126,14 @@ export const heroCopy = {
       },
       {
         name: "Fabrizio Notter",
-        role: "Founder",
+        role: "Gründer – Struktur & Wirksamkeit",
         facts: [
-          "15+ Jahre Leadership & Transformationsarbeit (u.a. ABB, RCC)",
-          "Projekte mit messbarer Wirkung (u.a. zweistellige Mio.-Effekte)",
-          "Fokus: Systemfähigkeit, Prozesse, Umsetzung im echten Betrieb",
+          "15+ Jahre Leadership und Transformationsarbeit in komplexen Organisationen. Projekte mit messbarer Wirkung, von struktureller Neuausrichtung bis zu zweistelligen Millionen-Effekten.",
+          "Ich arbeite am Kern eines Unternehmens: an Prozessen mit klarer Verantwortung, an Strukturen, die unter Druck halten, und an Systemen, die nicht von einzelnen Personen abhängen.",
+          "Digitalisierung und KI integriere ich dort, wo sie strukturelle Wirkung erzeugen - nicht als Tool-Show, sondern als sicherer Produktivitätshebel im System.",
         ],
         stance:
-          "Ich will Systeme, die funktionieren – nicht Präsentationen, die beeindrucken.",
+          "Ich baue Systeme, die im Alltag funktionieren. Nicht auf Folien.",
       },
     ],
   };
@@ -144,27 +143,27 @@ export const heroCopy = {
     title: "Ein Unternehmen ist kein Werkzeug, das man härter benutzen muss, wenn es nicht funktioniert.",
     states: [
       {
-        label: "Zustand 1 – Reaktive Realität",
+        label: "Zustand 1 – Es läuft, aber es kostet Kraft",
         bullets: [
-          "Das Unternehmen funktioniert, aber nur durch permanentes Eingreifen.",
-          "Prozesse existieren, tragen aber nicht.",
-          "Leistung entsteht durch Menschen, nicht durch Struktur.",
+          "Entscheidungen entstehen aus Diskussionen, nicht aus Struktur.",
+          "Führung greift ein, statt zu gestalten.",
+          "Leistung hängt an einzelnen Menschen statt an systemischer Klarheit.",
         ],
       },
       {
-        label: "Zustand 2 – Systemische Klarheit",
+        label: "Zustand 2 – Klarheit verändert die Dynamik",
         bullets: [
           "Zusammenhänge werden sichtbar.",
-          "Verantwortung wird klar.",
-          "Entscheidungen werden leichter, weil sie nicht jedes Mal neu ausgehandelt werden müssen.",
+          "Verantwortung wird tragfähig.",
+          "Entscheidungen entstehen aus Struktur und nicht mehr aus Tagesform.",
         ],
       },
       {
-        label: "Zustand 3 – Tragfähigkeit",
+        label: "Zustand 3 – Das System trägt",
         bullets: [
-          "Das System trägt den Alltag.",
-          "Führung arbeitet am System, nicht permanent im System.",
-          "Entwicklung wird möglich, ohne Dauerfeuer.",
+          "Der Alltag wird vom System getragen.",
+          "Führung ist nicht mehr operativ, sondern strategisch.",
+          "Wachstum, Innovation und neue Spielräume werden zu umsetzbaren Chancen.",
         ],
       },
     ],
@@ -172,7 +171,7 @@ export const heroCopy = {
 
   export const reflectionCopy = {
     label: "System-Reflexion",
-    title: "Fünf Fragen an Ihr heutiges System.",
+    title: "Fragen an Ihr heutiges System.",
     questions: [
       {
         text: [
@@ -182,26 +181,26 @@ export const heroCopy = {
       },
       {
         text: [
-          "Würde Ihr System stabil bleiben,",
-          "wenn Schlüsselpersonen morgen nicht verfügbar wären?",
+          "Entsteht Führung bei Ihnen durch Klarheit –",
+          "oder durch Präsenz und Druck?",
         ],
       },
       {
         text: [
-          "Entstehen Entscheidungen durch Struktur –",
-          "oder werden sie jedes Mal neu ausgehandelt?",
+          "Sind Ihre Prozesse belastbar –",
+          "mit klaren Verantwortlichkeiten?",
         ],
       },
       {
         text: [
-          "Schafft Digitalisierung bei Ihnen Klarheit –",
-          "oder zusätzliche Abhängigkeiten?",
+          "Schafft Ihre digitale Landschaft Transparenz –",
+          "oder zusätzliche Komplexität?",
         ],
       },
       {
         text: [
-          "Arbeiten Sie überwiegend am System –",
-          "oder permanent im System?",
+          "Ist KI bei Ihnen strukturell integriert, noch im Experimentiermodus,",
+          "oder führt sie bereits schleichend zu einer Schatten-IT?",
         ],
       },
     ],
