@@ -7,7 +7,7 @@ interface CalendlyModalProps {
   onClose: () => void;
 }
 
-const CALENDLY_URL = "https://calendly.com/fabrizio-notter/ihr-system";
+const CALENDLY_URL = "https://calendly.com/fabrizio-struqtera/kennenlernen";
 
 export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
   useEffect(() => {
