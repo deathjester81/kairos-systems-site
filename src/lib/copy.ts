@@ -88,7 +88,7 @@ export const heroCopy = {
       },
       {
         title: "Architektur",
-        text: "Wir übersetzen Ziele in Struktur: Werte, Prozesse, Verantwortlichkeiten, Standards und Führungsprinzipien. Nicht als Papier, sondern als belastbares System.",
+        text: "Wir übersetzen Ihre Ziele in eine Struktur für Ihr Unternehmen: Werte, Prozesse, Verantwortlichkeiten, Standards und Führungsprinzipien. Dank unserer Vorgehensweise wird daraus kein Papiertiger, sondern eine effektive und belastbare Struktur.",
       },
       {
         title: "Verankerung",
