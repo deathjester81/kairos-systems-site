@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const links = [
     { href: "#problem", label: "Problem" },
@@ -17,6 +18,9 @@ const links = [
 
   export default function Nav({ onOpenCalendly }: NavProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const isHome = pathname === "/";
+
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       e.preventDefault();
       const id = href.replace("#", "");
@@ -43,8 +47,8 @@ const links = [
         <div className="mx-auto max-w-7xl flex items-center justify-between">
           {/* Logo */}
           <a 
-            href="#hero" 
-            onClick={(e) => scrollToSection(e, "#hero")}
+            href={isHome ? "#hero" : "/"}
+            onClick={isHome ? (e) => scrollToSection(e, "#hero") : undefined}
             className="text-lg sm:text-xl font-bold tracking-tighter text-neutral-50 hover:text-amber-400 transition-colors"
           >
             STRUQTERA
