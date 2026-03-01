@@ -10,7 +10,7 @@ export const heroCopy = {
       "Stark geführt, mit klaren Prozessen und Verantwortlichkeiten.",
       "Digitalisierung und KI werden so eingebettet,",
       "dass sie entlasten statt zusätzlich zu verkomplizieren.",
-      "Nicht als Trend, sondern als stabiles Fundament für Wachstum, Übergabe und Entlastung.",
+      "Nicht als Trend, sondern als stabiles Fundament für Wachstum und Entlastung des gesamten Unternehmens.",
     ],
     cta: "Ihr System starten",
   };
@@ -32,7 +32,7 @@ export const heroCopy = {
     ],
     outro: [
       "Das ist kein individuelles Versagen.",
-      "Es ist das Ergebnis einer Struktur, die nie bewusst gebaut wurde.",
+      "Es ist das Ergebnis einer Unternehmensstruktur, die nie bewusst gestaltet wurde.",
     ],
   };
 
@@ -78,7 +78,7 @@ export const heroCopy = {
     label: "Prozess",
     title: "Wie wir arbeiten",
     intro: [
-      "Wir arbeiten dort, wo Ihr Unternehmen tatsächlich steht.",
+      "Wir beginnen dort, wo Ihr Unternehmen tatsächlich steht.",
       "Nicht in der Theorie, sondern im laufenden Betrieb.",
     ],
     steps: [
@@ -117,9 +117,9 @@ export const heroCopy = {
         name: "Kai Mossig",
         role: "Founder",
         facts: [
-          "Top-Management-Rollen (u.a. ABB, Acceleron)",
-          "Aufbau & Skalierung von Organisationseinheiten (u.a. international)",
-          "Fokus: Führungssysteme, Wirksamkeit, Organisationsdesign",
+          "Mehr als 25 Jahre Führungserfahrung in unterschiedlichen Rollen und Geschäftsfeldern, Mitarbeit und Leitung von Innovations- und Transformationsprojekten mit nachhaltigem Erfolg.",
+          "Mich begeistert die Arbeit im Team, um Prozesse zu definieren und gemeinsam Leben zu lassen, zum Nutzen aller Beteiligten. \"Work smarter, not harder.\"",
+          "Automatisierung und Digitalisierung setze ich ein, wenn die Prozesse stabil sind, damit Nutzen entsteht und nicht um die Digitalisierung herum gearbeitet wird.",
         ],
         stance:
           "Ich baue Organisationen, die tragen – weil Führung Zeit für das Wesentliche braucht.",
