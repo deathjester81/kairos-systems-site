@@ -215,6 +215,6 @@ export const heroCopy = {
     ],
     ctaPrimary: "Termin anfragen",
     ctaSecondary: "E-Mail schreiben",
-    email: "hello@struqtera.ch",
+    email: "fabrizio@struqtera.ch",
   };
   
